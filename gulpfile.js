@@ -39,7 +39,7 @@ var build = {
 };
 
 var commonPackage = [
-    /* 1.) === external modules - for example glue-module-lib or glue-module-data ===*/
+    /* 1.) === libraries  ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js'
 
     /* 2.) === custom js files ===*/
@@ -47,7 +47,7 @@ var commonPackage = [
 ];
 
 var chartsPackage = [
-    /* 1.) === external modules - for example glue-module-lib or glue-module-data ===*/
+    /* 1.) === libraries  ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js',
     'src/charts/node_modules/highcharts/highcharts.js'
 
