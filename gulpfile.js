@@ -38,39 +38,37 @@ var build = {
     css: basepath.build+'assets/css/'
 };
 
-var common = [
+var commonPackage = [
     /* 1.) === external modules - for example glue-module-lib or glue-module-data ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js'
-    /* 2.) === external js libraries from node_modules folder ===*/
 
-    /* 3.) === custom js files ===*/
+    /* 2.) === custom js files ===*/
     /* src.js+'main.js' */
 ];
 
-var charts = [
+var chartsPackage = [
     /* 1.) === external modules - for example glue-module-lib or glue-module-data ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js',
     'src/charts/node_modules/highcharts/highcharts.js'
-    /* 2.) === external js libraries from node_modules folder ===*/
 
-    /* 3.) === custom js files ===*/
+    /* 2.) === custom js files ===*/
     /* src.js+'main.js' */
 ];
 
-var loader = [
+var loaderPackage = [
     'src/loader.js'
 ];
 /*=====================================================================
  JS TASKS
  ======================================================================*/
-gulp.task('loader',function(){
-    gulp.src(loader)
+var fileCreation = function (pack, filename) {
+    gulp.src(pack)
         .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(debug({
             title: 'js'
         }))
-        .pipe(concat('loader.js',{
+        .pipe(concat(filename + '.js',{
             newLine: ''
         }))
         .pipe(sourcemaps.write('.', {
@@ -80,43 +78,16 @@ gulp.task('loader',function(){
         .pipe(reload({
             stream: true
         }));
+};
+
+gulp.task('loader',function(){
+    fileCreation(loaderPackage , "loader");
 });
 gulp.task('common',function(){
-    gulp.src(common)
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
-        .pipe(debug({
-            title: 'js'
-        }))
-        .pipe(concat('common.js',{
-            newLine: ''
-        }))
-        .pipe(sourcemaps.write('.', {
-            sourceRoot: src.js
-        }))
-        .pipe(gulp.dest(build.js))
-        .pipe(reload({
-            stream: true
-        }));
+    fileCreation(commonPackage , "common");
 });
-
 gulp.task('charts',function(){
-    gulp.src(charts)
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
-        .pipe(debug({
-            title: 'js'
-        }))
-        .pipe(concat('charts.js',{
-            newLine: ''
-        }))
-        .pipe(sourcemaps.write('.', {
-            sourceRoot: src.js
-        }))
-        .pipe(gulp.dest(build.js))
-        .pipe(reload({
-            stream: true
-        }));
+    fileCreation(chartsPackage , "charts");
 });
 
 
