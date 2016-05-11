@@ -49,11 +49,12 @@ var commonPackage = [
 var chartsPackage = [
     /* 1.) === libraries  ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'src/charts/node_modules/highcharts/highcharts.js'
+    'src/charts/node_modules/highcharts/highcharts.js',
 
     /* 2.) === custom js files ===*/
-    /* src.js+'main.js' */
+    'src/data/main.js'
 ];
+
 
 var loaderPackage = [
     'src/loader.js'
@@ -89,6 +90,7 @@ gulp.task('common',function(){
 gulp.task('charts',function(){
     fileCreation(chartsPackage , "charts");
 });
+
 
 
 // testing related tasks

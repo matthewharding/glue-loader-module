@@ -3,6 +3,7 @@ var qg = qg || {};
 
 // glue
 qg.glue = qg.glue || {};
+qg.glue.data = qg.glue.data || {};
 
 qg.glue.loader = {
     init : function (callback) {
