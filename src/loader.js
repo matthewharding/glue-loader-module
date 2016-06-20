@@ -8,6 +8,7 @@ qg.glue.data = qg.glue.data || {};
 qg.glue.loader = {
     init : function (callback) {
         if($(".qg-glue-charts").length > 0)  this.loadCharts(callback);
+        else if($(".qg-glue-forms").length > 0)  this.loadCharts(callback);
         else this.commonLibs(callback);
     },
     commonLibs : function (callback) {
@@ -17,6 +18,10 @@ qg.glue.loader = {
     loadCharts : function (callback) {
         console.log('%c charts libraries has been loaded', 'background: #222; color: #bada55');
         $.getScript("https://rawgit.com/qld-gov-au/glue-module-loader/master/htdocs/assets/js/charts.js" , callback);
+    },
+    loadforms : function (callback) {
+        console.log('%c forms libraries has been loaded', 'background: #222; color: #bada55');
+        $.getScript("https://rawgit.com/qld-gov-au/glue-module-loader/master/htdocs/assets/js/forms.js" , callback);
     }
 };
 

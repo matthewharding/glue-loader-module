@@ -39,22 +39,17 @@ var build = {
 };
 
 var commonPackage = [
-    /* 1.) === libraries  ===*/
     'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js'
-
-    /* 2.) === custom js files ===*/
-    /* src.js+'main.js' */
 ];
-
+ 
 var chartsPackage = [
-    /* 1.) === libraries  ===*/
-    'src/common/node_modules/bootstrap/dist/js/bootstrap.min.js',
     'src/charts/node_modules/highcharts/highcharts.js',
-
-    /* 2.) === custom js files ===*/
     'src/data/main.js'
 ];
 
+var formsPackage = [
+    'src/forms/forms.js'
+];
 
 var loaderPackage = [
     'src/loader.js'
@@ -89,6 +84,9 @@ gulp.task('common',function(){
 });
 gulp.task('charts',function(){
     fileCreation(chartsPackage , "charts");
+});
+gulp.task('forms',function(){
+    fileCreation(formsPackage , "forms");
 });
 
 
@@ -179,7 +177,7 @@ gulp.task('watcher',function(){
 /*=====================================================================
  TASK RUNNERS
  ======================================================================*/
-gulp.task('default',['sass','html','images','loader', 'common', 'charts']);
+gulp.task('default',['sass','html','images','loader', 'common', 'charts' , 'forms']);
 gulp.task('watch',['watcher']);
 gulp.task('develop',['default','watch']);
 
