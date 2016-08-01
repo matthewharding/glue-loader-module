@@ -13,15 +13,15 @@ qg.glue.loader = {
     },
     commonLibs : function (callback) {
         console.log('%c loader could not find any specific classes so just the common libraries has been loaded ', 'background: #222; color: #bada55');
-        $.getScript("./?a=476897:htdocs/assets/js/common.js" , callback);
+        $.getScript("/__data/assets/git_bridge/0005/476897/htdocs/assets/js/common.js" , callback);
     },
     loadCharts : function (callback) {
         console.log('%c charts libraries has been loaded', 'background: #222; color: #bada55');
-        $.getScript("./?a=476897:htdocs/assets/js/charts.js" , callback);
+        $.getScript("/__data/assets/git_bridge/0005/476897/htdocs/assets/js/charts.js" , callback);
     },
     loadForms : function (callback) {
         console.log('%c forms libraries has been loaded', 'background: #222; color: #bada55');
-        $.getScript("./?a=476897:htdocs/assets/js/forms.js" , callback);
+        $.getScript("/__data/assets/git_bridge/0005/476897/htdocs/assets/js/forms.js" , callback);
     }
 };
 
